@@ -27,19 +27,18 @@
 </section></div></div></main>
 <footer><div class="container"><span>© <span id="year">2026</span> Kyle Jennings</span><a href="../">Back to homepage ↑</a></div></footer>
 <script>
-/* SETUP: Replace only the URL below with YOUR Google appointment booking link.
-   Example format: https://calendar.google.com/calendar/appointments/schedules/AcZssZ... */
-const GOOGLE_BOOKING_URL = "https://calendar.app.google/jznbqP3z8YSbySqS6";
-const configured = /^https:\/\/calendar\.google\.com\/calendar\/appointments\/schedules\//.test(GOOGLE_BOOKING_URL);
-if(configured){
-  const embedUrl = new URL(GOOGLE_BOOKING_URL);
-  embedUrl.searchParams.set('gv','true');
-  const frame = document.getElementById('booking-frame');
-  frame.src = embedUrl.toString();
-  frame.style.display = 'block';
-  document.getElementById('setup-placeholder').style.display = 'none';
-  const link = document.getElementById('booking-link'); link.href=GOOGLE_BOOKING_URL;link.style.display='inline-block';
-}
+/* Booking schedule: Google's short sharing URL. The full "Inline booking page"
+   URL from Google Calendar is preferable if the short URL disallows iframe display. */
+const GOOGLE_BOOKING_URL = "https://calendar.app.google/niW4aL8asewbWgFc8";
+const frame = document.getElementById('booking-frame');
+const bookingLink = document.getElementById('booking-link');
+bookingLink.href = GOOGLE_BOOKING_URL;
+bookingLink.style.display = 'inline-block';
+const embedUrl = new URL(GOOGLE_BOOKING_URL);
+embedUrl.searchParams.set('gv', 'true');
+frame.src = embedUrl.toString();
+frame.style.display = 'block';
+document.getElementById('setup-placeholder').style.display = 'none';
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body></html>
